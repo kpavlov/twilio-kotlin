@@ -133,6 +133,10 @@ tasks.named("compileKotlinJvm") {
     dependsOn("fixGeneratedSources")
 }
 
+tasks.named("dokkaGenerateModuleHtml") {
+    dependsOn("fixGeneratedSources")
+}
+
 tasks.named("dokkaGenerateModuleJavadoc") {
     dependsOn("fixGeneratedSources")
 }
