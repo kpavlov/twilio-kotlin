@@ -17,7 +17,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach 
 }
 
 dependencies {
-    implementation(project(":lib"))
+    implementation(project(":twilio-kotlin"))
     implementation(libs.kotlinx.serialization.json)
 
     // Logging

@@ -21,7 +21,7 @@ subprojects {
 }
 
 dependencies {
-    kover(project(":lib"))
+    "kover"(project(":twilio-kotlin"))
     kover(project(":examples"))
 }
 

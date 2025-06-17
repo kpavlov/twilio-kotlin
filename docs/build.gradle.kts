@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-    dokka(project(":lib"))
+    "dokka"(project(":twilio-kotlin"))
     dokka(project(":examples"))
 }
 

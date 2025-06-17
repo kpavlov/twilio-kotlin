@@ -2,6 +2,6 @@ rootProject.name = "Twilio Kotlin SDK"
 
 include(
     ":docs",
-    ":lib",
+    ":twilio-kotlin",
     ":examples",
 )
