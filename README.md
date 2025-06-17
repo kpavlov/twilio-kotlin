@@ -1,12 +1,11 @@
 # Kotlin Multiplatform Library Template
 
+[![Build](https://github.com/kpavlov/twilio-kotlin/actions/workflows/build.yml/badge.svg)](https://github.com/kpavlov/twilio-kotlin/actions/workflows/build.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Kotlin](https://img.shields.io/badge/kotlin-2.1.21-blue.svg?logo=kotlin)](https://kotlinlang.org)
 [![Target JVM](https://img.shields.io/badge/Target%20JDK-17-green.svg)](https://jdk.java.net/17/)
-[![Gradle](https://img.shields.io/badge/Gradle-8.14.1-green.svg)](https://gradle.org)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/yourusername/kotlin-kmp-library/build.yml?branch=main)](https://github.com/yourusername/kotlin-kmp-library/actions)
-[![Documentation](https://img.shields.io/badge/Documentation-KDoc-blue)](https://yourusername.github.io/kotlin-kmp-library/)
-[![Coverage](https://img.shields.io/badge/Coverage-30%25-yellow)](https://github.com/Kotlin/kotlinx-kover)
+[![Gradle](https://img.shields.io/badge/Gradle-8.14.2-green.svg)](https://gradle.org)
+[![Documentation](https://img.shields.io/badge/Documentation-KDoc-blue)](https://kpavlov.github.io/twilio-kotlin/)
 
 A template project for creating Kotlin Multiplatform libraries with comprehensive testing and documentation setup.
 

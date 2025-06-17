@@ -2,7 +2,7 @@
 
 # Default task
 .PHONY: all
-all: build
+all: clean build
 
 # Build the project
 .PHONY: build

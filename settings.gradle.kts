@@ -1,4 +1,4 @@
-rootProject.name = "kotlin-kmp-library"
+rootProject.name = "Twilio Kotlin SDK"
 
 include(
     ":docs",
