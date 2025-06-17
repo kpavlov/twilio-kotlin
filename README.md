@@ -1,4 +1,4 @@
-# Kotlin Multiplatform Library Template
+# Twilio Kotlin SDK
 
 [![Build](https://github.com/kpavlov/twilio-kotlin/actions/workflows/build.yml/badge.svg)](https://github.com/kpavlov/twilio-kotlin/actions/workflows/build.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -7,17 +7,19 @@
 [![Gradle](https://img.shields.io/badge/Gradle-8.14.2-green.svg)](https://gradle.org)
 [![Documentation](https://img.shields.io/badge/Documentation-KDoc-blue)](https://kpavlov.github.io/twilio-kotlin/)
 
-A template project for creating Kotlin Multiplatform libraries with comprehensive testing and documentation setup.
+A Kotlin Multiplatform SDK for Twilio APIs with Ktor HTTP client and comprehensive OpenAPI-generated clients.
 
 [![Buy me a Coffee](https://cdn.buymeacoffee.com/buttons/default-orange.png)](https://buymeacoffee.com/mailsk)
 
 ## Features
 
 - **Kotlin Multiplatform** support for JVM, with extensibility for other platforms
-- **Calculator** class implementation with basic arithmetic operations
+- **Twilio Conversations API** client generated from OpenAPI specification
+- **Ktor HTTP client** with basic authentication support for Twilio Account SID and Auth Token
+- **Type-safe API** with Kotlin serialization for all Twilio API models
 - **Comprehensive testing** setup with:
   - Kotlin tests using [Kotest](https://kotest.io/)
-  - Java tests using [AssertJ](https://assertj.github.io/doc/)
+  - Mock HTTP client testing with Ktor MockEngine
   - Mocking with [MockK](https://mockk.io/)
 - **Code quality** tools:
   - [Detekt](https://detekt.github.io/detekt/) for static code analysis
@@ -25,21 +27,22 @@ A template project for creating Kotlin Multiplatform libraries with comprehensiv
   - [Kover](https://github.com/Kotlin/kotlinx-kover) for code coverage
 - **Documentation** generation with [Dokka](https://github.com/Kotlin/dokka)
 - **Maven publication** setup for easy distribution
-- **Example module** demonstrating library usage
+- **OpenAPI code generation** automatically generates up-to-date client code from Twilio's OpenAPI specifications
 
 ## Project Structure
 
 - **lib**: The main library module containing the Kotlin Multiplatform code
-  - `src/commonMain`: Common Kotlin code
-  - `src/jvmMain`: JVM-specific code
-  - `src/commonTest`: Common tests
+  - `src/commonMain`: Common Kotlin code and generated Twilio API clients
+  - `src/jvmMain`: JVM-specific code (Ktor CIO engine)
+  - `src/commonTest`: Common tests including Twilio client tests
   - `src/jvmTest`: JVM-specific tests
-- **examples**: Module demonstrating usage of the library
+  - `build/generated/openapi`: Auto-generated Twilio API client code from OpenAPI specs
+- **examples**: Module demonstrating usage of the Twilio SDK
   - Contains both Kotlin and Java examples and tests
 
 ## Requirements
 
-- JDK 21 or higher
+- JDK 17 or higher
 - Gradle 8.7 or higher
 
 ## Getting Started
@@ -47,8 +50,8 @@ A template project for creating Kotlin Multiplatform libraries with comprehensiv
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/kotlin-kmp-library.git
-cd kotlin-kmp-library
+git clone https://github.com/kpavlov/twilio-kotlin.git
+cd twilio-kotlin
 ```
 
 ### Build the Project
@@ -65,20 +68,8 @@ make build
 
 ## Usage
 
-### Basic Usage
 
-```kotlin
-// Assuming Calculator is imported from com.example.library
-val calculator = Calculator()
-
-// Basic operations
-println("5 + 3 = ${calculator.add(5.0, 3.0)}")
-println("10 - 4 = ${calculator.subtract(10.0, 4.0)}")
-println("7 * 6 = ${calculator.multiply(7.0, 6.0)}")
-println("20 / 5 = ${calculator.divide(20.0, 5.0)}")
-println("√16 = ${calculator.sqrt(16.0)}")
-println("2³ = ${calculator.power(2.0, 3.0)}")
-```
+**[TBD]**
 
 See the `examples` module for more detailed usage examples.
 
@@ -135,13 +126,34 @@ Or using the Makefile:
 make publish
 ```
 
-## Customizing the Template
+## API Coverage
 
-1. Update the group ID and version in `gradle.properties`
-2. Modify the library name in `settings.gradle.kts`
-3. Update the package names in the source files
-4. Replace the Calculator implementation with your own code
-5. Update the documentation links in `dokka-convention.gradle.kts`
+Currently, this SDK includes:
+
+- **Twilio Conversations API** - Complete client generated from OpenAPI specifications
+  - Conversations management
+  - Messages and participants
+  - Webhooks and notifications
+  - Service configurations
+
+### Adding More Twilio APIs
+
+To add support for additional Twilio APIs:
+
+1. Add the OpenAPI spec URL to the `openApiGenerate` configuration in `lib/build.gradle.kts`
+2. Run `./gradlew :lib:openApiGenerate` to generate client code
+3. Update the source directories to include the new generated code
+
+## Authentication
+
+The SDK uses HTTP Basic Authentication with your Twilio Account SID as the username and Auth Token as the password:
+
+```kotlin
+conversationApi.setUsername("YOUR_ACCOUNT_SID")  // Starts with "AC"
+conversationApi.setPassword("YOUR_AUTH_TOKEN")   // Your auth token
+```
+
+Find your credentials in the [Twilio Console](https://console.twilio.com/).
 
 ## License
 
